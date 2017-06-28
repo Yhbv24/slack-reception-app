@@ -20,17 +20,22 @@
     </head>
     <body>
         <form action="success.php" method="post">
-            <label for="employee">Employee:</label><br>
-            <select name="employees">
-                <option value="none">Please choose a name:</option>
+            <label for="employee">Who are you here for?</label><br>
+            <select name="employee">
                 <?php foreach($results->members as $member) : ?>
                     <?php if ($member->profile->real_name_normalized && $member->deleted != 1) : ?>
-                        <option value="<?php $member ?>"><?php echo $member->profile->real_name_normalized ?></option>
+                        <option value="<?php echo $member->id ?>"><?php echo $member->profile->real_name_normalized ?></option>
                 <?php endif; endforeach; ?>
-            </select>
+            </select><br><br>
+
+            <label for="guest_name">Your Name:</label>
+            <input name="guest_name" type="text" id="guest_name"required><br><br>
+
+            <label for="guest_org">Your Organization:</label>
+            <input name="guest_org" type="text" id="guest_org" required><br><br>
 
             <label for="message">Message:</label>
-            <input type="textarea">
+            <textarea name="message" id="message" required></textarea><br><br>
 
             <button type="submit">Submit</button>
         </form>
