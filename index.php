@@ -21,10 +21,11 @@
     </head>
     <body>
         <h2 id="welcome-title">Welcome to R/West</h2>
+        <img src="img/rwest-logo-sm.png" alt="R/West Logo" id="main-logo">
         <?php if ($results->ok) : ?>
         <form action="success.php" method="post" id="form">
             <div id="emp-select">
-                <label for="employee" id="emp-label">Who are you here to see?</label>
+                <label for="employee">Who are you here to see?</label>
                 <select name="employee" id="emp-list">
                     <?php foreach($results->members as $member) : ?>
                         <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello') : ?>
@@ -34,17 +35,17 @@
                 </select>
             </div>
 
-            <div id="guest-name">
+            <div class="text-input">
                 <label for="guest_name">Your Name:</label>
-                <input name="guest_name" type="text" placeholder="your name" required>
+                <input name="guest_name" type="text" required>
             </div>
 
-            <div id="guest-org">
+            <div class="text-input">
                 <label for="guest_org">Your Organization:</label>
-                <input name="guest_org" type="text" placeholder="your organization" required>
+                <input name="guest_org" type="text" required>
             </div>
 
-            <button type="submit" id="submit">Submit</button>
+            <div type="submit" id="submit">Submit</div>
         </form>
         <?php else : ?>
             <h3>Sorry, we were not able to retrieve a list of employees. Please try again in a few minutes.</h3>

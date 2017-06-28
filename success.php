@@ -12,7 +12,7 @@
         'text' => $message_to_send,
         'username' => 'R/West Guest'
     );
-    curl_setopt($ch, CURLOPT_URL,'https://slack.com/api/chat.postMessage');
+    curl_setopt($ch, CURLOPT_URL, 'https://slack.com/api/chat.postMessage');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $opts);
@@ -29,6 +29,12 @@
         <title>Thanks!</title>
     </head>
     <body>
+        <br><img src="img/rwest-logo-sm.png" alt="R/West Logo" id="main-logo">
         <h3>Thanks <?php echo $guest_name ?>! Take a seat, and someone will be with you shortly.</h3>
     </body>
+    <script>
+        setTimeout(function() {
+            window.location = "http://localhost:8000/";
+        }, 5000);
+    </script>
 </html>

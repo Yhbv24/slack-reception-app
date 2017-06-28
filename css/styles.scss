@@ -1,21 +1,54 @@
 body {
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
   font-family: 'Abril Fatface', cursive;
   text-align: center;
+  background-image: url(../img/rwest-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.8);
+  input[type=text] {
+    padding: 10px;
+    width: 350px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+  }
+  #main-logo {
+    opacity: 0.8;
+  }
   #welcome-title {
     font-size: 3em;
     letter-spacing: 2px;
   }
-  #emp-select {
-    #emp-label {
-      display: block;
-    }
-  }
   #form {
     font-size: 1.5em;
-    #emp-select,
-    #guest-name,
-    #guest-org {
-      margin: 20px;
+    #emp-list {
+      width: 350px;
+      height: 40px;
+      font-size: 1.2em;
+      font-family: 'Abril Fatface', cursive;
     }
+    #emp-select,
+    .text-input {
+      margin: 20px;
+      letter-spacing: 1px;
+      label {
+        display: block;
+      }
+    }
+  }
+  #submit {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    margin: 20px auto;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 1px;
+    width: 150px;
   }
 }
