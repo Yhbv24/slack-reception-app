@@ -14,30 +14,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         <link href="css/styles.min.css" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
         <title>R/West Messenger</title>
     </head>
     <body>
-        <form action="success.php" method="post">
-            <label for="employee">Who are you here for?</label><br>
-            <select name="employee">
-                <?php foreach($results->members as $member) : ?>
-                    <?php if ($member->profile->real_name_normalized && $member->deleted != 1) : ?>
-                        <option value="<?php echo $member->id ?>"><?php echo $member->profile->real_name_normalized ?></option>
-                <?php endif; endforeach; ?>
-            </select><br><br>
+        <h2 id="welcome-title">Welcome to R/West</h2>
+        <?php if ($results->ok) : ?>
+        <form action="success.php" method="post" id="form">
+            <div id="emp-select">
+                <label for="employee" id="emp-label">Who are you here to see?</label>
+                <select name="employee" id="emp-list">
+                    <?php foreach($results->members as $member) : ?>
+                        <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello') : ?>
+                            <option value="<?php echo $member->id; ?>"><?php echo ucwords($member->profile->real_name_normalized); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <label for="guest_name">Your Name:</label>
-            <input name="guest_name" type="text" id="guest_name"required><br><br>
+            <div id="guest-name">
+                <label for="guest_name">Your Name:</label>
+                <input name="guest_name" type="text" placeholder="your name" required>
+            </div>
 
-            <label for="guest_org">Your Organization:</label>
-            <input name="guest_org" type="text" id="guest_org" required><br><br>
+            <div id="guest-org">
+                <label for="guest_org">Your Organization:</label>
+                <input name="guest_org" type="text" placeholder="your organization" required>
+            </div>
 
-            <label for="message">Message:</label>
-            <textarea name="message" id="message" required></textarea><br><br>
-
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit">Submit</button>
         </form>
+        <?php else : ?>
+            <h3>Sorry, we were not able to retrieve a list of employees. Please try again in a few minutes.</h3>
+        <?php endif; ?>
     </body>
 </html>

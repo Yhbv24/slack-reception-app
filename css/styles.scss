@@ -1,0 +1,21 @@
+body {
+  font-family: 'Abril Fatface', cursive;
+  text-align: center;
+  #welcome-title {
+    font-size: 3em;
+    letter-spacing: 2px;
+  }
+  #emp-select {
+    #emp-label {
+      display: block;
+    }
+  }
+  #form {
+    font-size: 1.5em;
+    #emp-select,
+    #guest-name,
+    #guest-org {
+      margin: 20px;
+    }
+  }
+}
