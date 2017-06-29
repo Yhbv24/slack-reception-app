@@ -58,13 +58,8 @@ curl_close($ch);
                   <input placeholder="Your Organization" name="guest_org" type="text" required>
                 </div>
 
-                <div type="submit" id="submit" onclick="submitForm()">Message</div>
+                <button type="submit" id="submit">Message</button>
               </div>
-              <script>
-                function submitForm() {
-                  document.forms["form"].submit();
-                }
-              </script>
             </form>
           <?php else : ?>
             <h3>Sorry, we were not able to retrieve a list of employees. Please try again in a few minutes.</h3>
