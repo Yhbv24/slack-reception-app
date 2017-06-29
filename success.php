@@ -44,13 +44,13 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-        <link href="css/styles.min.css" rel="stylesheet" type="text/css">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
         <title>Thanks! We'll be with you shortly.</title>
     </head>
     <body>
         <br><img src="img/rwest-logo-sm.png" alt="R/West Logo" id="main-logo">
-        <h3>Thanks <?php echo $guest_name ?>! Take a seat, and someone will be with you shortly. <?php echo $_POST['emp_email']?></h3>
+        <h3>Thanks <?php echo $guest_name ?>! Take a seat, and someone will be with you shortly.</h3>
     </body>
     <script>
         setTimeout(function() {
