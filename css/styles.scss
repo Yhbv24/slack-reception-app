@@ -30,6 +30,9 @@ body {
       text-transform: uppercase;
       font-size: 60px;
       font-family: 'Fjalla One', sans-serif;
+      #name {
+        color: $r-west;
+      }
     }
     img {
       display: block;
