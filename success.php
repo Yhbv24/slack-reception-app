@@ -28,7 +28,7 @@
             'channel' => $emp_info,
             'as_user' => 0,
             'text' => message_to_send($guest_reason, $guest_name, $guest_org),
-            'username' => 'R/West Guest:'
+            'username' => 'R/West Guest'
         );
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://slack.com/api/chat.postMessage');
