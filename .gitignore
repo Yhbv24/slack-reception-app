@@ -1,2 +1,4 @@
 slack_url.php
 styles.min.css
+.DS_Store
+/PHPMailer

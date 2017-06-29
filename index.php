@@ -1,5 +1,5 @@
 <?php
-    require_once('slack_url.php');
+    require_once 'slack_url.php';
     $ch = curl_init();
     $opts = array(
         'token' => $slack_token,
@@ -30,6 +30,7 @@
             <div id="emp-select">
                 <label for="employee">Who are you here to see?</label>
                 <select name="employee" id="emp-list">
+                    <option value="none" disabled selected>Office Directory</option>
                     <?php foreach($results->members as $member) : ?>
                         <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello' && $member->presence === 'active') : ?>
                             <option value="<?php echo $member->id; ?>"><?php echo ucwords($member->profile->real_name_normalized); ?></option>
