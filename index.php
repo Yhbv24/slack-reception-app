@@ -62,12 +62,12 @@ $reasons = array(
               <div id="text-block">
                 <div class="text-input">
                   <label for="guest_name">Your Name:</label>
-                  <input placeholder="Your Name" name="guest_name" type="text" required>
+                  <input placeholder="Your Name" name="guest_name" type="text" maxlength="15" required>
                 </div>
 
                 <div class="text-input">
                   <label for="guest_org">Your Organization:</label>
-                  <input placeholder="Your Organization" name="guest_org" type="text" required>
+                  <input placeholder="Your Organization" name="guest_org" type="text" maxlength="15" required>
                 </div>
 
                 <button type="submit" id="submit">Message</button>
