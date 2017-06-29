@@ -12,6 +12,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $opts);
 $response = curl_exec($ch);
 $results = json_decode($response);
 curl_close($ch);
+$reasons = array(
+    '0' => 'Delivery',
+    '1' => 'Meeting',
+    '2' => 'Office Visit'
+);
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +48,14 @@ curl_close($ch);
                     <?php elseif ($member->presence === 'away' && $member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello') : ?>
                       <option value="<?php echo $member->profile->email; ?>" required><?php echo ucwords($member->profile->real_name_normalized); ?></option>
                     <?php endif; ?>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div id="reason-select">
+                <select name="reason" id="reason" required>
+                  <option value="" disabled selected>Reason for Visit</option>
+                  <?php foreach ($reasons as $reason => $value) : ?>
+                    <option value="<?php echo $reason; ?>"><?php echo $value; ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
