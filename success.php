@@ -4,7 +4,7 @@
     $guest_name = $_POST[filter_var('guest_name', FILTER_SANITIZE_MAGIC_QUOTES)];
     $guest_org = $_POST[filter_var('guest_org', FILTER_SANITIZE_MAGIC_QUOTES)];
     $emp_info = $_POST['employee'];
-    $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here.';
+    $guest_reason = $_POST['reason'];
     if (strpos($_POST['employee'], '@') !== false) { // If employee is not online, send email to email address
         date_default_timezone_set('Etc/UTC');
         $mail = new PHPMailer();
@@ -18,17 +18,17 @@
         $mail->setFrom('rwestalerts@gmail.com', 'R/West Alerts');
         $mail->addReplyTo('rwestalerts@gmail.com', 'R/West Alerts');
         $mail->addAddress(strtolower($emp_info));
-        $mail->Subject = 'R/West Receptionist: ' . $guest_name . ' is here to see you!';
-        $mail->Body = 'Hi, ' . $guest_name . ' is here to see you!';
-        $mail->AltBody = 'Hi, ' . $guest_name . ' is here to see you!';
+        $mail->Subject = 'R/West Receptionist: ' . message_to_send($guest_reason, $guest_name, $guest_org);
+        $mail->Body = message_to_send($guest_reason, $guest_name, $guest_org);
+        $mail->AltBody = message_to_send($guest_reason, $guest_name, $guest_org);
         $mail->send();
     } else { // If employee is online, send Slack message
         $opts = array(
             'token' => $slack_token,
             'channel' => $emp_info,
             'as_user' => 0,
-            'text' => $message_to_send,
-            'username' => 'R/West Guest: ' . $guest_name
+            'text' => message_to_send($guest_reason, $guest_name, $guest_org),
+            'username' => 'R/West Guest:'
         );
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://slack.com/api/chat.postMessage');
@@ -37,6 +37,23 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS, $opts);
         curl_exec($ch);
         curl_close($ch);
+    }
+
+    function message_to_send($guest_reason, $guest_name, $guest_org) {
+        switch ($guest_reason) {
+            case '0':
+                $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here with your delivery.';
+                return $message_to_send;
+            break;
+            case '1':
+                $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here for the meeting.';
+                return $message_to_send;
+            break;
+            case '2':
+                $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here to meet you.';
+                return $message_to_send;
+            break;
+        }
     }
 ?>
 
