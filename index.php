@@ -36,8 +36,8 @@ curl_close($ch);
           <?php if ($results->ok) : ?>
             <form action="success.php" method="post" name="form" id="form">
               <div id="emp-select">
-                <select name="employee" id="slct">
-                  <option value="none" disabled selected>Office Directory</option>
+                <select name="employee" id="slct" required>
+                  <option value="" disabled selected>Office Directory</option>
                   <?php foreach($results->members as $member) : ?>
                     <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello' && $member->presence === 'active') : ?>
                       <option value="<?php echo $member->id; ?>"><?php echo ucwords($member->profile->real_name_normalized); ?></option>
