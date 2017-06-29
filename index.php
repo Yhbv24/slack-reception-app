@@ -39,8 +39,8 @@ $reasons = array(
         <div class="contact-list-container">
           <?php if ($results->ok) : ?>
             <form action="success.php" method="post" name="form" id="form">
-              <div id="emp-select">
-                <select name="employee" id="slct" required>
+              <div class="select">
+                <select name="employee" class="slct" id="emp-select" required>
                   <option value="" disabled selected>Office Directory</option>
                   <?php foreach($results->members as $member) : ?>
                     <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello' && $member->presence === 'active') : ?>
@@ -51,8 +51,8 @@ $reasons = array(
                   <?php endforeach; ?>
                 </select>
               </div>
-              <div id="reason-select">
-                <select name="reason" id="reason" required>
+              <div class="select">
+                <select name="reason" class="slct" required>
                   <option value="" disabled selected>Reason for Visit</option>
                   <?php foreach ($reasons as $reason => $value) : ?>
                     <option value="<?php echo $reason; ?>"><?php echo $value; ?></option>

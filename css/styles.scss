@@ -108,22 +108,28 @@ body {
           padding: 10px;
         }
       }
-      #emp-select {
+      .select {
         width: 100%;
         height: 60px;
         border: 2px solid #777777;
-        background: url(../img/rwest-select-icon.png) rgba(255, 255, 255, 0.9) no-repeat right 30px center;
+        background: rgba(255, 255, 255, 0.9);
         padding: 10px;
         border-radius: 10px;
         margin-bottom: 15px;
-        #slct {
+        #emp-select {
+          background: url(../img/rwest-select-icon.png) no-repeat right 30px center;
+        }
+        .slct {
+          width: 100%;
+          height: 100%;
           text-transform: uppercase;
-          padding-top: 10px;
           font-family: "Open Sans", sans-serif;
           font-size: 24px;
           color: #777777;
           letter-spacing: 1px;
           font-weight: 700;
+          border: none;
+          background: none;
         }
       }
       #submit {
