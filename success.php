@@ -43,14 +43,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet" type="text/css">
-        <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+      <link href='css/origin-files/opensans-fonts.css' rel='stylesheet' type='text/css'>
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
         <title>Thanks! We'll be with you shortly.</title>
     </head>
-    <body>
+    <body class="success-page">
+      <div id='success-container'>
         <br><img src="img/rwest-logo-sm.png" alt="R/West Logo" id="main-logo">
-        <h3>Thanks <?php echo $guest_name ?>! Take a seat, and someone will be with you shortly.</h3>
+        <h1>Thank you <span id='name'>
+        <?php echo $guest_name ?>
+      </span>
+        !</h1>
+        <h3 class="greeting-message" id="success-greet">Please take a seat, and someone will be with you shortly.</h3>
+      </div>
     </body>
     <script>
         setTimeout(function() {
