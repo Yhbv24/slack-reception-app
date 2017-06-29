@@ -22,7 +22,6 @@ curl_close($ch);
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
   <link href='css/origin-files/opensans-fonts.css' rel='stylesheet' type='text/css'>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
-
   <title>Welcome to R/West</title>
 </head>
 <body>
@@ -36,8 +35,8 @@ curl_close($ch);
           <?php if ($results->ok) : ?>
             <form action="success.php" method="post" name="form" id="form">
               <div id="emp-select">
-                <select name="employee" id="slct">
-                  <option value="none" disabled selected>Office Directory</option>
+                <select name="employee" id="slct" required>
+                  <option value="" disabled selected>Office Directory</option>
                   <?php foreach($results->members as $member) : ?>
                     <?php if ($member->profile->real_name_normalized && $member->deleted != 1 && $member->profile->real_name_normalized != 'slackbot' && $member->profile->real_name_normalized != 'Trello' && $member->presence === 'active') : ?>
                       <option value="<?php echo $member->id; ?>"><?php echo ucwords($member->profile->real_name_normalized); ?></option>
@@ -47,7 +46,7 @@ curl_close($ch);
                   <?php endforeach; ?>
                 </select>
               </div>
-              <div id="text-input">
+              <div id="text-block">
                 <div class="text-input">
                   <label for="guest_name">Your Name:</label>
                   <input placeholder="Your Name" name="guest_name" type="text" required>
@@ -58,13 +57,8 @@ curl_close($ch);
                   <input placeholder="Your Organization" name="guest_org" type="text" required>
                 </div>
 
-                <div type="submit" id="submit" onclick="submitForm()">Message</div>
+                <button type="submit" id="submit">Message</button>
               </div>
-              <script>
-                function submitForm() {
-                  document.forms["form"].submit();
-                }
-              </script>
             </form>
           <?php else : ?>
             <h3>Sorry, we were not able to retrieve a list of employees. Please try again in a few minutes.</h3>
@@ -74,4 +68,59 @@ curl_close($ch);
     </div>
   </div>
 </body>
+<!-- <script src="js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+		$(function()
+		{
+		// Validation
+		$("#form").validate(
+		{
+			// Rules for form validation
+			rules:
+			{
+				employee:
+				{
+					required: true
+				},
+				message:
+				{
+					required: false,
+					minlength: 1
+				}
+			},
+			// Messages for form validation
+			messages:
+			{
+				employee:
+				{
+					required: 'Please select the Employee you wish to contact'
+				},
+				message:
+				{
+					required: 'Please enter your message'
+				}
+			},
+			// Ajax form submition
+			submitHandler: function(form)
+			{
+				$(form).ajaxSubmit(
+				{
+					beforeSend: function()
+					{
+						$('#sky-form button[type="submit"]').attr('disabled', true);
+					},
+					success: function()
+					{
+						$("#sky-form").addClass('submited');
+					}
+				});
+			},
+			// Do not change code below
+			errorPlacement: function(error, element)
+			{
+				error.insertAfter(element.parent());
+			}
+		});
+	});
+</script> -->
 </html>
