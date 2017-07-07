@@ -1,21 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+html,
 body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  font-family: 'Abril Fatface', cursive;
-  text-align: center;
-  background-image: url(../img/rwest-background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: rgba(255, 255, 255, 0.8); }
-  body input[type=text] {
-    padding: 10px;
-    width: 350px;
-    border: 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    font-size: 1em; }
-  body #page-container {
+  height: 100%; }
+  html #page-container, html .success-page,
+  body #page-container,
+  body .success-page {
     background: url("../img/rwest-background.jpg") no-repeat center center #000;
     background-size: cover;
     -webkit-background-size: cover;
@@ -29,42 +18,137 @@ body {
     bottom: 0;
     width: 100%;
     height: 100%; }
+  html #success-container,
+  body #success-container {
+    max-width: 540px;
+    min-width: 300px;
+    height: auto;
+    margin: 5% auto;
+    color: #fff;
+    text-align: center; }
+    html #success-container h1,
+    body #success-container h1 {
+      text-transform: uppercase;
+      font-size: 60px;
+      font-family: 'Fjalla One', sans-serif; }
+      html #success-container h1 #name,
+      body #success-container h1 #name {
+        color: #E74536; }
+    html #success-container img,
+    body #success-container img {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      height: 250px; }
+    html #success-container #success-greet,
+    body #success-container #success-greet {
+      font-family: "Open Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      text-shadow: 5px 5px 10px #000; }
+  html .content-container,
   body .content-container {
     max-width: 540px;
     min-width: 300px;
     height: auto;
     margin: 5% auto; }
-  body #main-logo {
-    opacity: 0.8; }
-  body #form {
-    font-size: 1.5em; }
-    body #form #emp-list {
-      margin: 10px auto 0;
+    html .content-container img.logo,
+    body .content-container img.logo {
       display: block;
-      width: 350px;
-      height: 40px;
-      font-size: 1.2em;
-      font-family: 'Abril Fatface', cursive; }
-    body #form #emp-select,
-    body #form .text-input {
-      margin: 20px;
-      letter-spacing: 1px; }
-      body #form #emp-select label,
-      body #form .text-input label {
-        display: block; }
-  body #submit {
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px 30px;
-    margin: 20px auto;
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Abril Fatface', cursive;
-    letter-spacing: 1px;
-    width: 150px; }
-    body #submit:hover {
-      cursor: pointer; }
-  body #purple {
-    color: purple; }
+      margin: 0 auto;
+      text-align: center;
+      height: 250px; }
+    html .content-container img.welcome,
+    body .content-container img.welcome {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    html .content-container .greeting-message,
+    body .content-container .greeting-message {
+      font-family: "Open Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      text-shadow: 5px 5px 10px #000; }
+  html .contact-list-container,
+  body .contact-list-container {
+    margin: 40px auto; }
+    html .contact-list-container #form,
+    body .contact-list-container #form {
+      width: 100%;
+      position: relative;
+      display: block; }
+      html .contact-list-container #form label,
+      body .contact-list-container #form label {
+        display: none; }
+      html .contact-list-container #form #text-block,
+      body .contact-list-container #form #text-block {
+        width: 100%; }
+        html .contact-list-container #form #text-block input,
+        body .contact-list-container #form #text-block input {
+          width: 100%;
+          height: 60px;
+          border: 2px solid #777777;
+          background: rgba(255, 255, 255, 0.9) no-repeat right 30px center;
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          font-family: "Open Sans", sans-serif;
+          font-size: 24px;
+          color: #777777;
+          letter-spacing: 1px;
+          font-weight: 700;
+          padding: 10px; }
+      html .contact-list-container #form .select,
+      body .contact-list-container #form .select {
+        width: 100%;
+        height: 60px;
+        border: 2px solid #777777;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 15px; }
+        html .contact-list-container #form .select #emp-select,
+        body .contact-list-container #form .select #emp-select {
+          background: url(../img/rwest-select-icon.png) no-repeat right 30px center; }
+        html .contact-list-container #form .select .slct,
+        body .contact-list-container #form .select .slct {
+          width: 100%;
+          height: 100%;
+          text-transform: uppercase;
+          font-family: "Open Sans", sans-serif;
+          font-size: 24px;
+          color: #777777;
+          letter-spacing: 1px;
+          font-weight: 700;
+          border: none;
+          background: none; }
+      html .contact-list-container #form #submit,
+      body .contact-list-container #form #submit {
+        width: 100%;
+        height: 60px;
+        background: #c73704;
+        text-align: center;
+        color: #ffffff;
+        font-family: "Open Sans", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 30px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px solid #bf5b38;
+        box-shadow: inset 10px 10px 40px 0px rgba(255, 255, 255, 0.25);
+        padding: 10px;
+        margin: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

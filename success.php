@@ -5,7 +5,7 @@
     $guest_org = $_POST[filter_var('guest_org', FILTER_SANITIZE_MAGIC_QUOTES)];
     $emp_info = $_POST['employee'];
     $guest_reason = $_POST['reason'];
-    if (strpos($_POST['employee'], '@') !== false) { // If employee is not online, send email to email address
+    if (filter_var($emp_info, FILTER_VALIDATE_EMAIL)) { // If employee is not online, send email to email address
         date_default_timezone_set('Etc/UTC');
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -18,7 +18,7 @@
         $mail->setFrom('rwestalerts@gmail.com', 'R/West Alerts');
         $mail->addReplyTo('rwestalerts@gmail.com', 'R/West Alerts');
         $mail->addAddress(strtolower($emp_info));
-        $mail->Subject = 'R/West Receptionist: ' . message_to_send($guest_reason, $guest_name, $guest_org);
+        $mail->Subject = 'Message from R/West Receptionist';
         $mail->Body = message_to_send($guest_reason, $guest_name, $guest_org);
         $mail->AltBody = message_to_send($guest_reason, $guest_name, $guest_org);
         $mail->send();
@@ -41,15 +41,15 @@
 
     function message_to_send($guest_reason, $guest_name, $guest_org) {
         switch ($guest_reason) {
-            case '0':
+            case '0': // Delivery
                 $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here with your delivery.';
                 return $message_to_send;
             break;
-            case '1':
+            case '1': // Meeting
                 $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here for the meeting.';
                 return $message_to_send;
             break;
-            case '2':
+            case '2': // Office Visit
                 $message_to_send = 'Hey! ' . $guest_name . ' from ' . $guest_org . ' is here to meet you.';
                 return $message_to_send;
             break;
@@ -78,7 +78,7 @@
       </div>
     </body>
     <script>
-        setTimeout(function() {
+        setTimeout(function() { // Redirect to home page after five seconds
             window.location = "http://rweststaging.com/RWest-Greeting-App/";
         }, 5000);
     </script>
