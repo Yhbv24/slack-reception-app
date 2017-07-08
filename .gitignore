@@ -5,4 +5,5 @@ styles.min.css
 /.sass-cache
 /css/origin-files
 /css/styles.css
-/css/styles.css.mao
+/css/styles.css.map
+.gitignore
