@@ -9,14 +9,14 @@ This is a web-based PHP app that is meant for office reception areas. The app al
 
 ## Technologies Used
 
-• PHP
-• PHPMailer
-• JavaScript
-• HTML
-• SASS
-• Slack API
-  • chat.postMessage
-  • users.list
+* PHP
+* PHPMailer
+* JavaScript
+* HTML
+* SASS
+* Slack API
+  * chat.postMessage
+  * users.list
 
 ## Setup Instructions
 
